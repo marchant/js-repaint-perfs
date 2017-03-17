@@ -68,8 +68,7 @@
     { type: 'optimized', id: 'dio', url: './dio/index.html', label: 'DBMON DIO.js' },
     { type: 'optimized', id: 'redom', url: './redom/index.html', label: 'DBMON RE:DOM' },
     { type: 'naive', id: 'hyperapp', url: './hyperapp', label: 'DBMON HyperApp' },
-    { type: 'naive', id: 'stemjs', url: './stemjs/index.html', label: 'DBMON StemJS'},
-    { type: 'optimized', id: 'stemjs', url: './stemjs-optimized', label: 'DBMON StemJS'},
+    { type: 'optimized', id: 'montage', url: './montage', label: 'DBMON Montage' }
   ];
 
   function Library() {
