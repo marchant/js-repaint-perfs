@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script type="text/montage-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {"#": "main"}
+                }
+            },
+            "repetition": {
+                "prototype": "ui/tree-list.reel",
+                "properties": {
+                    "element": {"#": "repetition"},
+                    "isRootVisible": false,
+                    "rowHeight": 30,
+                    "indentationWidth": 20
+                },
+                "bindings": {
+                    "controller": {"<-": "@treeController"}
+                }
+            },
+            "treeController": {
+                "prototype": "montage/core/tree-controller",
+                "bindings": {
+                    "data": {"<-": "@owner.databases"}
+                }
+            },
+            "row": {
+                "prototype": "ui/row.reel",
+                "properties": {
+                    "element": {"#": "row"}
+                },
+                "bindings": {
+                    "data": {"<-": "@repetition:iteration.object.data"}
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div data-montage-id="main" class="Main">
+        <div class="table table-striped latest-data">
+            <div data-montage-id="repetition" style="position: absolute; top: 45px; left: 0; right: 0; bottom: 0;">
+                <div data-montage-id="row"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

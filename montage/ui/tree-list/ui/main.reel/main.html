@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Main</title>
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <script type="text/montage-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {"#": "main"}
+                }
+            },
+
+            "treeController": {
+                "prototype": "montage/core/tree-controller",
+                "properties": {
+                    "data": {
+                        "name": "root",
+                        "children": [
+                            {
+                                "name": "a",
+                                "children": [
+                                    {
+                                        "name": "aa",
+                                        "children": [
+                                            {"name": "aaa"},
+                                            {"name": "aab"}
+                                        ]
+                                    }
+                                    ,
+                                    {
+                                        "name": "ab",
+                                        "children": [
+                                            {"name": "aba"},
+                                            {"name": "abb"}
+                                        ]
+                                    },
+                                    {
+                                        "name": "ac",
+                                        "children": [
+                                            {"name": "aca"},
+                                            {"name": "acb"}
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "b",
+                                "children": [
+                                    {
+                                        "name": "ba",
+                                        "children": [
+                                            {"name": "baa"},
+                                            {"name": "bab"}
+                                        ]
+                                    },
+                                    {
+                                        "name": "bb",
+                                        "children": [
+                                            {"name": "bba"},
+                                            {"name": "bbb"}
+                                        ]
+                                    },
+                                    {
+                                        "name": "bc",
+                                        "children": [
+                                            {"name": "bca"},
+                                            {"name": "bcb"}
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+
+            "treeList": {
+                "prototype": "ui/tree-list.reel",
+                "properties": {
+                    "element": {"#": "treeList"},
+                    "isRootVisible": true,
+                    "isRootExpanded": false,
+                    "rowHeight": 30,
+                    "indentationWidth": 20
+                },
+                "bindings": {
+                    "controller": {"<-": "@treeController"}
+                }
+            },
+
+            "treeListItem": {
+                "prototype": "ui/tree-list-item.reel",
+                "properties": {
+                    "element": {"#": "treeListItem"}
+                },
+                "bindings": {
+                    "iteration": {"<-": "@treeList:iteration.object"}
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div data-montage-id="main">
+        <p>
+            NOTE 1: I'm using in this example montage/ui/button.reel that is not working good yet - Benoit needs to fix it. You need to do 2 clicks the first time to make the expand/collapse buttons work.
+        </p>
+        <p>
+            NOTE 2: The properties "rowHeight" and "indentationWidth" are very bad, but that is the current status of the TreeList. Newer versions of it won't need it - the TreeList will measure by itself the height, for example. The values are pixels.
+        </p>
+        <p>
+            NOTE 3: "isRootExpanded" makes the root to be expanded by default or not. "isRootVisible" can hide the root, and it would make the root expanded when it is set to true.
+        </p>
+        <div data-montage-id="treeList" class="treeList">
+            <div data-montage-id="treeListItem" class="treeListItem"></div>
+        </div>
+    </div>
+</body>
+</html>

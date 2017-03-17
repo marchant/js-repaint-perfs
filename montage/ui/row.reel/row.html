@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="row.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "rangeController": {
+            "prototype": "montage/core/range-controller",
+            "bindings": {
+                "content": {"<-": "@owner.data.lastSample.topFiveQueries"}
+            }
+        },
+        "repetition": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "repetition"},
+                "contentController": {"@": "rangeController"}
+            }
+        },
+        "dbname": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "dbname"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.data.dbname"}
+            }
+        },
+        "count": {
+            "prototype": "ui/count.reel",
+            "properties": {
+                "element": {"#": "count"}
+            },
+            "bindings": {
+                "lastSample": {"<-": "@owner.data.lastSample"}
+            }
+        },
+        "query": {
+            "prototype": "ui/query.reel",
+            "properties": {
+                "element": {"#": "query"}
+            },
+            "bindings": {
+                "query": {"<-": "@repetition:iteration.object"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="Row">
+        <div data-montage-id="dbname" class="dbname" style="float: left; width: 20%"></div>
+        <div class="query-count" style="float: left; width: 10%">
+            <span data-montage-id="count" class="label label-success"></span>
+        </div>
+        <div data-montage-id="repetition" style="float: left; width: 70%">
+            <div data-montage-id="query"></div>
+        </div>
+    </div>
+</body>
+</html>

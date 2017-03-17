@@ -1,0 +1,14 @@
+{
+    "name": "tree-list",
+    "version": "0.1.0",
+    "dependencies": {
+        "montage": "git+http://github.com:montagejs/montage.git#master"
+    },
+    "devDependencies": {
+        "montage-testing": "~0.4.0"
+    },
+    "exclude": [
+        "run-tests.html",
+        "test"
+    ]
+}
